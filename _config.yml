@@ -21,7 +21,7 @@ force-https: True
 #############
 lang: "en"
 author: "Mathias Parger"
-title: "{ Mathias Parger }"
+title: "Mathias Parger's Blog"
 description: "Mathias Parger's personal website."
 keywords: "mathias, parger, personal, research, cv, biography"
 favicon: "/img/favicon.ico"
