@@ -2,75 +2,86 @@
 
 <!doctype html>
 <html lang="{{ site.lang }}">
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
+<body>
     {% include navigation.html %}
 
     <section id="post" class="container content-section text-center">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h1 class="paper-title"><strong>{{ page.title }}</strong></h1>
-          <h4 class="authorsWithVenue">{{page.authors}}</h4>
-          <h4>
-            <strong>
-            {% if page.venue %}
-            {% if page.venueDate %}
-            {% assign date = page.venueDate %} 
-            {% else %} 
-            {% assign date = page.date %} 
-            {% endif %}
-            {{ date | date: "%B %Y" }}, {{page.venue}}
-            {% else %}
-            {{ date | date: "%B %Y" }}
-            {% endif %}
-            </strong>
-            {% if page.links %}
-            <div class="links">
-            {% for link in page.links %}
-                <a class="link" href="{{ link[1] }}">{{ link[0] }}</a>
-            {% endfor %}
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h1 class="paper-title"><strong>{{ page.title }}</strong></h1>
+                <h4 class="authorsWithVenue">{{page.authors}}</h4>
+                <h4>
+                    <strong>
+                        {% if page.venue %}
+                        {% if page.venueDate %}
+                        {% assign date = page.venueDate %}
+                        {% else %}
+                        {% assign date = page.date %}
+                        {% endif %}
+                        {{ date | date: "%B %Y" }}, {{page.venue}}
+                        {% else %}
+                        {{ date | date: "%B %Y" }}
+                        {% endif %}
+                    </strong>
+                    {% if page.links %}
+                    <div class="links">
+                        {% for link in page.links %}
+                        <a class="link" href="{{ link[1] }}">{{ link[0] }}</a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </h4>
+
+                {% if page.teaser-img %}
+                <p>
+                    <img src="{{ page.teaser-img }}" alt="{{ page.title }} teaser" class="paper-teaser-img" />
+                </p>
+                {% endif %}
+
+                {% if page.yt-video %}
+                <p>
+                    <div class="paper-info-header">
+                        <iframe width="80%" height="auto" class="paper-video" src="{{ page.yt-video }}"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </p>
+                {% endif %}
+
+                <section class="text-justify">
+                    {{ page.content | markdownify }}
+                </section>
+
+                <div class="text-left">
+                    <small class="paper-tags">
+                        {% for tag in page.tags %}
+                        <a class="tag" href="{{site.baseurl}}/tags/{{tag | downcase}}.html">#{{ tag }}</a>
+                        {% endfor %}
+                    </small>
+                </div>
+
+                {% include share.html %} {% if jekyll.environment == "production" %}
+                {% include comments.html %} {% endif %}
+
+                <hr />
+
+                {% if site.author_blurb %}
+                <div class="author row">
+                    <img class="col-xs-4 col-sm-3 col-md-2" src="{{site.baseurl}}{{site.author_blurb_image}}"
+                        alt="Me" />
+                    <p class="col-xs-8 col-sm-9 col-md-10">{{ site.author_blurb }}</p>
+                </div>
+                {% endif%}
             </div>
-            {% endif %}
-
-          </h4>
-
-          <section class="text-justify">
-            {{ page.content | markdownify }}
-          </section>
-          
-        <div class="text-left">
-            <small class="paper-tags">
-                {% for tag in page.tags %}
-                <a
-                class="tag"
-                href="{{site.baseurl}}/tags/{{tag | downcase}}.html"
-                >#{{ tag }}</a>
-                {% endfor %}
-            </small>
         </div>
-
-          {% include share.html %} {% if jekyll.environment == "production" %}
-          {% include comments.html %} {% endif %}
-
-          <hr />
-
-          {% if site.author_blurb %}
-          <div class="author row">
-            <img
-              class="col-xs-4 col-sm-3 col-md-2"
-              src="{{site.baseurl}}{{site.author_blurb_image}}"
-              alt="Me"
-            />
-            <p class="col-xs-8 col-sm-9 col-md-10">{{ site.author_blurb }}</p>
-          </div>
-          {% endif%}
-        </div>
-      </div>
     </section>
 
     {% include footer.html %} {% include js.html %}
-  </body>
+</body>
+
 </html>
 
 <!-- Post Layout End -->

@@ -34,11 +34,18 @@
           </small> -->
         </h3>
 
+        {% if post.teaser-img %}
+        <p>
+          <img
+            src="{{ post.teaser-img }}"
+            alt="{{ post.title }} teaser"
+            class="paper-teaser-img"
+          />
+        </p>
+        {% endif %}
+
         <section class="text-justify text-center">
-            <!-- {{ post.content | regex_replace: '<div class="paper-info-header">(.|\n)*<\/div>','' | truncatewords: site.post-preview-words |
-            markdownify | regex_replace: '(<p>|<\/p>)','' }} -->
-          {{ post.content | regex_replace: '<div class="paper-info-header">(.|\n)*<\/div>','' | truncatewords: site.post-preview-words |
-          markdownify | regex_replace: '<\/p>$',''}}
+          {{ post.content | truncatewords: site.post-preview-words | markdownify}}
           <a href="{{site.baseurl}}{{ post.url }}">Read More</a>
           </p>
         </section>

@@ -8,10 +8,10 @@ category: paper
 links: {
     Paper: "http://openaccess.thecvf.com/content/ICCV2023/papers/Parger_MotionDeltaCNN_Sparse_CNN_Inference_of_Frame_Differences_in_Moving_Camera_ICCV_2023_paper.pdf",
 }
+teaser-img: "/img/motiondeltacnn.jpg"
+yt-video: "https://www.youtube.com/embed/Q1MtBUcgdPA?si=Gbi1FpkfP1Ovsvpl"
 tags: ["CNN", "machine learning", "CUDA", "CV", "Meta Reality Labs"]
 ---
-
-<img src="/img/motiondeltacnn.jpg"/>
 
 MotionDeltaCNN is a follow-up paper to <a href="/paper/2022/06/16/deltacnn.html">DeltaCNN</a> and the last of the three research collaborations I did with Meta Reality Labs. This is probably a good time to thank them for the great time, and for enabling me to do this research. Special thanks go to Chengcheng Tang: thanks for all the help, it was a blast!
 
@@ -31,7 +31,3 @@ But this results in many problems: how do you correctly convolve newly added pix
 How to handle parallax?
 This paper ended up being much more complex than I initially thought, but I am very happy it made it into ICCV as a result.
 If you want to know how all that was solved, please take a look at the paper and the video.
-
-<div class="paper-info-header">
-    <iframe width="80%" height="auto" class="paper-video" src="https://www.youtube.com/embed/Q1MtBUcgdPA?si=Gbi1FpkfP1Ovsvpl"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
