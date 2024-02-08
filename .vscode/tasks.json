@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "serve",
+            "command": "jekyll serve --watch --host \"127.0.0.1\" --config _config.yml,_config.dev.yml",
+            "type": "shell",
+            "args": [],
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": "build",
+            "dependsOn": [
+                "update tags",
+                "update categories"
+            ]
+        },
+        {
+            "label": "update tags",
+            "type": "shell",
+            "command": "ruby .\\scripts\\generate-tags",
+            "problemMatcher": [],
+            "hide": true
+        },
+        {
+            "label": "update categories",
+            "type": "shell",
+            "command": "ruby .\\scripts\\generate-categories",
+            "problemMatcher": [],
+            "hide": true
+        }
+    ]
+}

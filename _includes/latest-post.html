@@ -2,37 +2,50 @@
 
 <section
   id="{{ page.section-type }}"
-  class="container content-section text-center"
+  class="container content-section"
 >
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      {{ page.content | markdownify }} {% assign post = site.posts.first %}
-      <h3>
-        <strong> {{ post.date | date_to_string }} </strong>
-        <small>
-          .
-          <a
-            class="category"
-            href="{{site.baseurl}}/categories/{{post.category | downcase}}.html"
-          >
-            {{ post.category }}
-          </a>
-          .
-        </small>
-        <strong>
-          <a href="{{site.baseurl}}{{ post.url }}">{{post.title}} </a>
-        </strong>
-        <small
-          ><a href="{{site.baseurl}}{{post.url}}#disqus_thread">Comments</a>
-        </small>
-      </h3>
+      <!-- {{ page.content | markdownify }} {% assign post = site.posts.first %} -->
+      {{ page.content | markdownify }} {% for post in site.posts limit:3 %}
+      <div class="latest-posts-preview">
+        <h3>
+          <div>
+            <strong class="latest-post-date"> {{ post.date |  date: "%B %Y"  }} </strong>
+            <small>
+              <a
+                class="category"
+                href="{{site.baseurl}}/categories/{{post.category | downcase}}.html"
+              >
+                {{ post.category }}
+              </a>
+            </small>
+          </div>
+          <br/>
+          <strong>
+            <a href="{{site.baseurl}}{{ post.url }}">{{post.title}}</a>
+          </strong>
+          {% if post.authors %}
+          <br/>
+          <small>{{post.authors}}</small>
+          {% endif %}
+          <!-- <small
+            ><a href="{{site.baseurl}}{{post.url}}#disqus_thread">Comments</a>
+          </small> -->
+        </h3>
 
-      <section class="text-justify">
-        {{ post.content | strip_html | truncatewords: site.post-preview-words |
-        markdownify }}
-      </section>
+        <section class="text-justify text-center">
+            <!-- {{ post.content | regex_replace: '<div class="paper-info-header">(.|\n)*<\/div>','' | truncatewords: site.post-preview-words |
+            markdownify | regex_replace: '(<p>|<\/p>)','' }} -->
+          {{ post.content | regex_replace: '<div class="paper-info-header">(.|\n)*<\/div>','' | truncatewords: site.post-preview-words |
+          markdownify | regex_replace: '<\/p>$',''}}
+          <a href="{{site.baseurl}}{{ post.url }}">Read More</a>
+          </p>
+        </section>
+      </div>
+      {%endfor%}
 
-      <h3><a href="{{site.baseurl}}/blog/">Archive</a></h3>
+      <h3 class="text-center"><a href="{{site.baseurl}}/blog/">All Posts</a></h3>
     </div>
   </div>
 </section>

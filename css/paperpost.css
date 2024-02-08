@@ -1,0 +1,40 @@
+.authorsWithVenue {
+    margin-bottom: 20px;
+}
+
+.latest-posts-preview:not(:last-of-type) {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 60px;
+}
+
+.latest-post-date{
+    font-size: 16px;
+}
+
+.paper-video {
+    aspect-ratio: 1.7777777;
+    margin-left: auto;
+    display: block;
+    margin-right: auto;
+}
+
+.links .link:not(:last-child) {
+    margin-right: 15px;
+}
+
+.links {
+    margin-top:10px;
+}
+
+.paper-title {
+    margin-bottom: 30px;
+}
+
+.paper-tags {
+    text-align: left;
+    margin-top: 0;
+}
+
+.paper-tags .tag:not(:last-child) {
+    margin-right:10px
+}
