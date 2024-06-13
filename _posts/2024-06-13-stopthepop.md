@@ -10,6 +10,7 @@ links: {
     Website: "https://r4dl.github.io/StopThePop/",
     Github: "https://github.com/r4dl/StopThePop"
 }
+yt-video: "https://www.youtube.com/embed/EmcXtHYhigk?si=1U_G8oyVCfcgF4N8"
 teaser-img: "/img/stopthepop.png"
 tags: ["3DGS", "3d reconstruction", "machine learning"]
 ---
