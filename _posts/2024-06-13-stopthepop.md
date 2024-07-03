@@ -18,7 +18,7 @@ tags: ["3DGS", "3d reconstruction", "machine learning"]
 StopThePop was by far the most focused paper I have been involved in. From concept to submission, it took us only about month to finish this paper - and it was accepted at Siggraph 2024 :-)
 The idea was clear: we want to add per-pixel sorting of Gaussians for better view-consistency. 
 
-For context: The original 3D Gaussian Splatting implementation suffers from view-consistency on camera rotation due to a combination of simplifications they use to increase the frame rate during inference. 
+For context: The original 3D Gaussian Splatting implementation suffers from view-inconsistency on camera rotation due to a combination of simplifications they use to increase the frame rate during inference. 
 While the effect can be subtle for some scenes, it is clearly noticeable on shiny or reflective surfaces.
 However, implementing a full per-pixel sorting of all Gaussians would result in huge run-time costs which might not be worth the gain in image quality.
 
